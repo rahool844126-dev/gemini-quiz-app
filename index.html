@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- This div creates the animated gradient background -->
+    <div class="background"></div>
+
+    <!-- Screen 1: The Main Menu -->
+    <div id="menu-screen" class="screen active">
+        <h1>Gemini Quiz</h1>
+        <div class="category-list">
+            <button class="glass-button" data-category="General Knowledge">General Knowledge</button>
+            <button class="glass-button" data-category="Science">Science</button>
+            <button class="glass-button" data-category="History">History</button>
+            <button class="glass-button" data-category="Movies">Movies</button>
+        </div>
+        <button id="create-quiz-btn" class="glass-button primary">✨ Create Your Own</button>
+    </div>
+
+    <!-- Screen 2: Create a Custom Quiz -->
+    <div id="create-screen" class="screen">
+        <h2>Create a Quiz</h2>
+        <p>Enter a topic or a few words:</p>
+        <input type="text" id="custom-topic-input" class="glass-input" placeholder="e.g., solar system, harry potter...">
+        <button id="generate-custom-btn" class="glass-button">Generate Quiz</button>
+        <button id="back-to-menu-btn" class="glass-button secondary">Back to Menu</button>
+    </div>
+
+    <!-- Screen 3: The Main Quiz View -->
+    <div id="quiz-screen" class="screen">
+        <div id="question-container" class="glass-panel">
+            <p id="question-text">Loading question...</p>
+        </div>
+        <div id="options-container" class="options-grid">
+            <!-- Answer option buttons will be created here by JavaScript -->
+        </div>
+        <button id="stop-quiz-btn" class="glass-button secondary">Stop & See Score</button>
+    </div>
+
+    <!-- Screen 4: The Final Score -->
+    <div id="score-screen" class="screen">
+        <div class="glass-panel">
+            <h2>Quiz Complete!</h2>
+            <p id="score-text">Your score is: 0 / 0</p>
+            <button id="play-again-btn" class="glass-button">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

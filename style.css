@@ -1,0 +1,133 @@
+/* style.css */
+:root {
+    --bg-color: #1a1a2e;
+    --primary-color: #e94560;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --correct-answer: rgba(46, 204, 113, 0.4);
+    --wrong-answer: rgba(231, 76, 60, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden; /* Prevents scrollbars from the background animation */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #e94560);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.screen {
+    display: none; /* Hide all screens by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.screen.active {
+    display: flex; /* Show only the active screen */
+}
+
+h1, h2, p {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.glass-button, .glass-panel, .glass-input {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.glass-button:active {
+    transform: scale(0.98); /* Nice press effect */
+}
+
+.glass-button.primary {
+    background: var(--primary-color);
+    border: none;
+}
+
+.glass-button.secondary {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.glass-input {
+    text-align: center;
+}
+
+.glass-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for better mobile view */
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#question-text {
+    font-size: 1.2rem;
+    min-height: 80px; /* Gives space for question text to load */
+}
+
+/* Styles for correct/wrong answer feedback */
+.glass-button.correct {
+    background-color: var(--correct-answer);
+    border-color: #2ecc71;
+}
+
+.glass-button.wrong {
+    background-color: var(--wrong-answer);
+    border-color: #e74c3c;
+}
